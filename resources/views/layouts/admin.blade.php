@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
-    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+    {{--
+    <link rel="stylesheet" href="/css/app.css"> --}}
     <link rel="shortcut icon" type="image/png" href="/images/icon/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -20,8 +22,9 @@
     <link rel="stylesheet" href="/css/responsive.css">
     <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -64,7 +67,7 @@
             </div>
             <!-- page title area end -->
             <div class="main-content-inner">
-              @yield('content')
+                @yield('content')
             </div>
         </div>
         <!-- main content area end -->
@@ -255,5 +258,6 @@
         </div>
     </div>
     @include('partials.scripts')
-  </body>
+</body>
+
 </html>
