@@ -4,6 +4,16 @@
   Inventory Management System
 @endsection
 
+@section('breadcrumbs')
+  <div class="breadcrumbs-area clearfix">
+      <h4 class="page-title pull-left">Products</h4>
+      <ul class="breadcrumbs pull-left">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><span>All Products</span></li>
+      </ul>
+  </div>
+@endsection
+
 @section('content')
 <!-- Progress Table start -->
 <div class="col-12 mt-5">

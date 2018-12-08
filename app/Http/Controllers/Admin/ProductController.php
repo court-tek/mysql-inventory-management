@@ -24,8 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // $create = echo 'This is the create handler';
-        // return $create;
+        return view('admin.products.create');
     }
 
     /**
@@ -48,7 +47,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.products.show');
     }
 
     /**
@@ -59,7 +58,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.products.edit');
     }
 
     /**
