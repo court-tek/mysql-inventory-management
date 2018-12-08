@@ -1,7 +1,7 @@
 /@extends('layouts.admin')
 
 @section('title')
-  Inventory Management Systems
+  Inventory Management System
 @endsection
 
 @section('content')

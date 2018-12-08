@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -13,8 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $what = 'Hello world';
-        return $what;
+        return view('admin.products.all');
     }
 
     /**
@@ -24,7 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        // $create = echo 'This is the create handler';
+        // return $create;
     }
 
     /**
@@ -35,7 +36,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $store = echo 'This is the store request';
+        // return $store;
     }
 
     /**
