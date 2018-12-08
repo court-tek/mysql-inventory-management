@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('admin.dash');
+    return view('admin.products.all');
 });
