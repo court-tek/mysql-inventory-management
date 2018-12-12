@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
           $table->string('material', 60)->nullable(false);
           $table->text('description')->nullable(false);
           $table->unsignedInteger('brand_id');
+          $table->unsignedInteger('user_id')->nullable(false);
           $table->integer('qty')->unsignedInteger();
           $table->float('size')->unsignedInteger();
           $table->timestamps();

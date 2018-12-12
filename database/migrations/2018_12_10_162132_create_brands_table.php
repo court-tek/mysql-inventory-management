@@ -17,6 +17,7 @@ class CreateBrandsTable extends Migration
             $table->increments('id')->unsignedInteger();
             $table->string('title', 200)->nullable(false);
             $table->text('description');
+            $table->unsignedInteger('user_id')->nullable(false);
             $table->timestamps();
         });
     }

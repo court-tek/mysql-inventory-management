@@ -23,7 +23,9 @@ class CreateItemsTable extends Migration
           $table->integer('qty')->unsignedInteger();
           $table->float('size')->unsignedInteger();
           $table->unsignedInteger('order_id');
+          $table->unsignedInteger('user_id')->nullable(false);
           $table->foreign('order_id')->references('id')->on('orders');
+          $table->foreign('brand_id')->references('id')->on('brands');
           $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class AddForeignKeyToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,7 +27,7 @@ class AddForeignKeyToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->dropForeign(['user_id', 'brand_id']);
         });
     }
 }

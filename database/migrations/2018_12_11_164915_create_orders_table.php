@@ -23,7 +23,8 @@ class CreateOrdersTable extends Migration
           $table->string('state', 60)->nullable();
           $table->string('country', 3)->nullable(false)->default('USA');
           $table->string('payment_type', 60)->nullable(false)->default('paypal');
-          $table->integer('user_id')->nullable(false);
+          $table->unsignedInteger('user_id')->nullable(false);
+          $table->foreign('user_id')->references('id')->on('users');
           $table->timestamps();
         });
     }
