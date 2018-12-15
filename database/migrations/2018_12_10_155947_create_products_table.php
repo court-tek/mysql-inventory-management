@@ -23,7 +23,8 @@ class CreateProductsTable extends Migration
           $table->unsignedInteger('user_id')->nullable(false);
           $table->integer('qty')->unsignedInteger();
           $table->float('size')->unsignedInteger();
-          $table->timestamps();
+          $table->timestamp('updated_at')->useCurrent();
+          $table->timestamp('created_at')->useCurrent();
         });
     }
 

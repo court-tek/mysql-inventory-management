@@ -25,7 +25,8 @@ class CreateOrdersTable extends Migration
           $table->string('payment_type', 60)->nullable(false)->default('paypal');
           $table->unsignedInteger('user_id')->nullable(false);
           $table->foreign('user_id')->references('id')->on('users');
-          $table->timestamps();
+          $table->timestamp('updated_at')->useCurrent();
+          $table->timestamp('created_at')->useCurrent();
         });
     }
 

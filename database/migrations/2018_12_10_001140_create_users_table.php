@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
           $table->string('email', 60)->nullubale(false)->unique();
           $table->string('phone_number', 20)->nullable(false);
           $table->string('birth_date')->nullable(false);
-          $table->rememberToken();
-          $table->timestamps();
+          $table->timestamp('updated_at')->useCurrent();
+          $table->timestamp('created_at')->useCurrent();
       });
     }
 

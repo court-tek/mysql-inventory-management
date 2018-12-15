@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
@@ -35,8 +36,30 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // $store = echo 'This is the store request';
-        // return $store;
+        // input variables
+        $title = $request->input('title');
+        $sku = $request->input('sku');
+        $material = $request->input('material');
+        $size = $request->input('size');
+        $description = $request->input('description');
+        $quantity = $request->input('qty');
+        $brands = $request->input('brands');
+
+        // mysql query insert
+        $product = DB::insert
+        ('INSERT INTO products
+                  (title,
+                   sku,
+                   material,
+                   description,
+                   brand_id,
+                   qty,
+                   size,
+                   user_id)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                  [$title, $sku, $material, $description, $brands, $quantity, $size, 1]);
+
+        return '<h1 style="color: red;">Data Submitted</h1>';
     }
 
     /**
