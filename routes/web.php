@@ -43,10 +43,12 @@ Route::group(['prefix' => 'admin'], function() {
   ]);
 
   Route::get('/products/{id}/update', [
-    'uses' => 'Admin\ProductController@update'
+    'uses' => 'Admin\ProductController@update',
+    'as' => 'product.update'
   ]);
 
   Route::get('/products/{id}/delete', [
-    'uses' => 'Admin\ProductController@delete'
+    'uses' => 'Admin\ProductController@delete',
+    'as' => 'product.delete'
   ]);
 });

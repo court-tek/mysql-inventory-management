@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.products.all');
+        $allProducts = DB::select('SELECT * FROM products');
+        return view('admin.products.all', ['allProducts' => $allProducts]);
     }
 
     /**
@@ -25,6 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         return view('admin.products.create');
     }
 
@@ -59,7 +61,7 @@ class ProductController extends Controller
                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
                   [$title, $sku, $material, $description, $brands, $quantity, $size, 1]);
 
-        return '<h1 style="color: red;">Data Submitted</h1>';
+        return redirect()->route('product.all');;
     }
 
     /**
