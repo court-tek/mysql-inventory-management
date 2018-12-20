@@ -15,8 +15,24 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $allProducts = DB::select('SELECT * FROM products');
+        $allProducts = DB::select('SELECT A.id,
+        A.title,
+        A.sku,
+        A.material,
+        A.qty,
+        A.size,
+        A.user_id,
+        A.created_at,
+        B.title as brand,
+        concat(C.f_name," ",C.l_name) as user
+        FROM products A
+        INNER JOIN brands B
+        ON A.brand_id = B.id
+        INNER JOIN users C
+        ON A.user_id = C.id
+        ORDER BY created_at ASC');
         return view('admin.products.all', ['allProducts' => $allProducts]);
+        // return $allProducts;
     }
 
     /**

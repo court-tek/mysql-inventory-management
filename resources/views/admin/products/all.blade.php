@@ -33,6 +33,7 @@
                                 <th scope="col">Size</th>
                                 <th scope="col">Brand</th>
                                 <th scope="col">Created By</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Options</th>
                             </tr>
                         </thead>
@@ -45,12 +46,9 @@
                                 <td>{{ $product->material }}</td>
                                 <td>{{ $product->qty }}</td>
                                 <td>{{ $product->size }}</td>
-                                {{-- <td>{{ $product->brand }}</td> --}}
-                                <td>
-                                    <div class="progress" style="height: 8px;">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </td>
+                                <td>{{ $product->brand }}</td>
+                                <td>{{ $product->user }}</td>
+
                                 <td><span class="status-p bg-primary">pending</span></td>
                                 <td>
                                     <ul class="d-flex justify-content-center">
