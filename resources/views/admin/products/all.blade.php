@@ -41,7 +41,11 @@
                           @foreach ($allProducts as $product)
                             <tr>
                                 <th scope="row">{{ $product->id }}</th>
-                                <td>{{ $product->title }}</td>
+                                <td>
+                                  <a href="{{ route('product.show', ['id' => $product->id]) }}">
+                                    {{ $product->title }}
+                                  </a>
+                                </td>
                                 <td>{{ $product->sku }}</td>
                                 <td>{{ $product->material }}</td>
                                 <td>{{ $product->qty }}</td>
