@@ -56,6 +56,7 @@ class ProductController extends Controller
     {
         // input variables
         $title = $request->input('title');
+        $image = $request->input('img_url');
         $sku = $request->input('sku');
         $material = $request->input('material');
         $size = $request->input('size');
@@ -67,6 +68,7 @@ class ProductController extends Controller
         $product = DB::insert
         ('INSERT INTO products
                   (title,
+                   img_url,
                    sku,
                    material,
                    description,
@@ -74,8 +76,8 @@ class ProductController extends Controller
                    qty,
                    size,
                    user_id)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                  [$title, $sku, $material, $description, $brands, $quantity, $size, 1]);
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                  [$title, $image, $sku, $material, $description, $brands, $quantity, $size, 1]);
 
         return redirect()->route('product.all');;
     }

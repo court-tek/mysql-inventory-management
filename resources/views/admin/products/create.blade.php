@@ -20,6 +20,10 @@
                     <label for="example-text-input" class="col-form-label">Title</label>
                     <input class="form-control" name="title" type="text" value="" id="example-text-input">
                 </div>
+                <div class="form-group">
+                    <label for="example-text-input" class="col-form-label">Image URL</label>
+                    <input class="form-control" name="img_url" type="text" value="" id="example-text-input">
+                </div>
                 <div class="form-group row">
                   <div class="col-sm-12 col-md-6">
                     <label for="example-text-input" class="col-form-label">Sku</label>
@@ -65,7 +69,7 @@
                     <textarea class="form-control" name="description" type="text" value="" id="example-text-input"></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-3">Save</button>
                 </div>
                 {{ csrf_field() }}
               </form>
