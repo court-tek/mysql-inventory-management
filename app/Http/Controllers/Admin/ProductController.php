@@ -90,7 +90,26 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('admin.products.show');
+      $Products = DB::select('SELECT A.id,
+      A.title,
+      A.sku,
+      A.img_url,
+      A.material,
+      A.qty,
+      A.size,
+      A.user_id,
+      A.created_at,
+      B.title as brand,
+      concat(C.f_name," ",C.l_name) as user
+      FROM products A
+      INNER JOIN brands B
+      ON A.brand_id = B.id
+      INNER JOIN users C
+      ON A.user_id = C.id
+      WHERE A.id = :id
+      ORDER BY created_at ASC
+      LIMIT 1', ['id' => $id]);
+      return view('admin.products.show', ['Products' => $Products]);
     }
 
     /**

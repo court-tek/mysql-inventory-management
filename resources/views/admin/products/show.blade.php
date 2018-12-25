@@ -12,12 +12,13 @@
     <div class="col-md-9 mt-5">
         <div class="card">
             <div class="card-body">
+                @foreach ($Products as $product)
                 <div class="row">
                     <div class="col-md-4">
-                        <img style="width: 100%" src="https://m.media-amazon.com/images/I/71TvxKiYMIL._SX480_.jpg" class="show-Products-img">
+                        <img style="width: 100%" src="{{ $product->img_url }}" class="show-Products-img">
                     </div>
                     <div class="col-md-8">
-                        <h2>Title</h2>
+                        <h2>{{ $product->title }}</h2>
                         <p>
                             <span>Description:</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos, tenetur! Ad est molestias quae ratione numquam delectus maiores impedit illo molestiae blanditiis quasi atque, sit, porro
                             velit corporis, consectetur quibusdam alias saepe magnam nemo et labore officiis ullam necessitatibus.
@@ -25,40 +26,38 @@
                         <div class="details row">
                             <div class="col-md-3">
                                 <h5>SKU</h5>
-                                <span>23344234</span>
+                                <span>{{ $product->sku }}</span>
                             </div>
                             <div class="col-md-3">
                                 <h5>Material</h5>
-                                <span>23344234</span>
+                                <span>{{ $product->material }}</span>
                             </div>
                             <div class="col-md-3">
                                 <h5>Brand</h5>
-                                <span>23344234</span>
+                                <span>{{ $product->brand }}</span>
                             </div>
                             <div class="col-md-3">
                                 <h5>Creator</h5>
-                                <span>23344234</span>
+                                <span>{{ $product->user }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
+              @endforeach
             </div>
         </div>
     </div>
     <div class="col-md-3 mt-5">
         <div class="card">
             <div class="card-body">
-                <a href="" class="btn btn-primary btn-lg btn-block">Edit
+                <a href="{{ route('product.edit') }}" class="btn btn-primary btn-lg btn-block">Edit
                 <i class="fa fa-edit"></i>
                 </a>
-                <a href="" class="btn btn-danger btn-lg btn-block">Delete
+                <a href="{{ route('product.delete') }}" class="btn btn-danger btn-lg btn-block">Delete
                 <i class="ti-trash"></i>
                 </a>
             </div>
         </div>
     </div>
 </div>
-<!-- Progress Table end -->
 @endsection
