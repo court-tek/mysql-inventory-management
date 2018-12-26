@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin'], function() {
     'as' => 'product.edit'
   ]);
 
-  Route::get('/products/{id}/update', [
+  Route::put('/products/{id}/update', [
     'uses' => 'Admin\ProductController@update',
     'as' => 'product.update'
   ]);

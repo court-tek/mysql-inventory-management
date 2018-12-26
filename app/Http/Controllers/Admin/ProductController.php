@@ -79,7 +79,7 @@ class ProductController extends Controller
                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
                   [$title, $image, $sku, $material, $description, $brands, $quantity, $size, 1]);
 
-        return redirect()->route('product.all');;
+        return redirect()->route('product.all');
     }
 
     /**
@@ -120,7 +120,26 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.products.edit');
+      $Products = DB::select('SELECT A.id,
+      A.title,
+      A.sku,
+      A.img_url,
+      A.material,
+      A.qty,
+      A.size,
+      A.user_id,
+      A.created_at,
+      B.title as brand,
+      concat(C.f_name," ",C.l_name) as user
+      FROM products A
+      INNER JOIN brands B
+      ON A.brand_id = B.id
+      INNER JOIN users C
+      ON A.user_id = C.id
+      WHERE A.id = :id
+      ORDER BY created_at ASC
+      LIMIT 1', ['id' => $id]);
+      return view('admin.products.edit', ['Products' => $Products]);
     }
 
     /**
@@ -132,7 +151,29 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // input variables
+      $title = $request->input('title');
+      $image = $request->input('img_url');
+      $sku = $request->input('sku');
+      $material = $request->input('material');
+      $size = $request->input('size');
+      $description = $request->input('description');
+      $quantity = $request->input('qty');
+      $brands = $request->input('brand_id');
+
+      $product = DB::table('products')
+      ->where('id', $id)
+      ->update([
+        'title' => $title,
+        'img_url' => $image,
+        'sku' => $sku,
+        'material' => $material,
+        'description' => $material,
+        'qty' => $quantity,
+        'size' => $size,
+      ]);
+
+      return redirect()->route('product.show', [$id]);;
     }
 
     /**

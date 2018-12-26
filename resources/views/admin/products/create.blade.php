@@ -8,7 +8,6 @@
     </ul>
 </div>
 @endsection @section('content')
-<!-- Progress Table start -->
 <div class="row">
     <div class="col-12 mt-5">
         <div class="card">
@@ -77,5 +76,4 @@
         </div>
     </div>
 </div>
-<!-- Progress Table end -->
 @endsection

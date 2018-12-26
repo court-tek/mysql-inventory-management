@@ -4,7 +4,9 @@
     <ul class="breadcrumbs pull-left">
         <li><a>Dashboard</a></li>
         <li><a href="{{ route('product.all') }}">All Products</a></li>
-        <li><span>Show</span></li>
+        @foreach ($Products as $prod)
+          <li><span>{{$prod->title}}</span></li>
+        @endforeach
     </ul>
 </div>
 @endsection @section('content')
@@ -43,21 +45,22 @@
                         </div>
                     </div>
                 </div>
-              @endforeach
+
             </div>
         </div>
     </div>
     <div class="col-md-3 mt-5">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('product.edit') }}" class="btn btn-primary btn-lg btn-block">Edit
+                <a href="{{ route('product.edit', ['id' => $product->id ]) }}" class="btn btn-primary btn-lg btn-block">Edit
                 <i class="fa fa-edit"></i>
                 </a>
-                <a href="{{ route('product.delete') }}" class="btn btn-danger btn-lg btn-block">Delete
+                <a href="" class="btn btn-danger btn-lg btn-block">Delete
                 <i class="ti-trash"></i>
                 </a>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection
