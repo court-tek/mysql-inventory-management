@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin'], function() {
   ]);
 
   Route::get('/products/{id}/delete', [
-    'uses' => 'Admin\ProductController@delete',
+    'uses' => 'Admin\ProductController@destroy',
     'as' => 'product.delete'
   ]);
 });

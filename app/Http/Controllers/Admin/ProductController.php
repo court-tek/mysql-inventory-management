@@ -95,6 +95,7 @@ class ProductController extends Controller
       A.sku,
       A.img_url,
       A.material,
+      A.description,
       A.qty,
       A.size,
       A.user_id,
@@ -125,6 +126,7 @@ class ProductController extends Controller
       A.sku,
       A.img_url,
       A.material,
+      A.description,
       A.qty,
       A.size,
       A.user_id,
@@ -161,19 +163,16 @@ class ProductController extends Controller
       $quantity = $request->input('qty');
       $brands = $request->input('brand_id');
 
-      $product = DB::table('products')
-      ->where('id', $id)
-      ->update([
-        'title' => $title,
-        'img_url' => $image,
-        'sku' => $sku,
-        'material' => $material,
-        'description' => $material,
-        'qty' => $quantity,
-        'size' => $size,
-      ]);
-
-      return redirect()->route('product.show', [$id]);;
+      $Products = DB::update('
+        UPDATE products SET
+        title = :title,
+        img_url = :img_url,
+        sku = :sku,
+        material = :material,
+        description = :description,
+        qty = :qty
+        WHERE id = :id', ['id' => $id, 'title' => $title, 'img_url' => $image, 'sku' => $sku, 'material' => $material, 'description' => $description, 'qty' => $quantity]);
+      return redirect()->route('product.show', [$id]);
     }
 
     /**
@@ -184,6 +183,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleted = DB::delete('DELETE FROM products WHERE id = :id', ['id' => $id]);
+        return redirect()->route('product.all');
     }
 }

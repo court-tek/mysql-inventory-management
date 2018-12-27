@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label for="example-text-input" class="col-form-label">Description</label>
-                        <textarea class="form-control" name="description" type="text" value="" id="example-text-input"></textarea>
+                        <input class="form-control" name="description" type="text" value="{{$product->description}}" id="example-text-input"></input>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary mb-3">Save</button>

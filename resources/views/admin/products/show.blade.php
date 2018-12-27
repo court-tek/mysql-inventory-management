@@ -5,7 +5,7 @@
         <li><a>Dashboard</a></li>
         <li><a href="{{ route('product.all') }}">All Products</a></li>
         @foreach ($Products as $prod)
-          <li><span>{{$prod->title}}</span></li>
+        <li><span>{{$prod->title}}</span></li>
         @endforeach
     </ul>
 </div>
@@ -22,8 +22,7 @@
                     <div class="col-md-8">
                         <h2>{{ $product->title }}</h2>
                         <p>
-                            <span>Description:</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos, tenetur! Ad est molestias quae ratione numquam delectus maiores impedit illo molestiae blanditiis quasi atque, sit, porro
-                            velit corporis, consectetur quibusdam alias saepe magnam nemo et labore officiis ullam necessitatibus.
+                            <span>Description:</span> {{ $product->description }}
                         </p>
                         <div class="details row">
                             <div class="col-md-3">
@@ -55,7 +54,7 @@
                 <a href="{{ route('product.edit', ['id' => $product->id ]) }}" class="btn btn-primary btn-lg btn-block">Edit
                 <i class="fa fa-edit"></i>
                 </a>
-                <a href="" class="btn btn-danger btn-lg btn-block">Delete
+                <a href="{{ route('product.delete', ['id' => $product->id]) }}" class="btn btn-danger btn-lg btn-block">Delete
                 <i class="ti-trash"></i>
                 </a>
             </div>
