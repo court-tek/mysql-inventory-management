@@ -6,7 +6,7 @@
 
 @section('breadcrumbs')
   <div class="breadcrumbs-area clearfix">
-      <h4 class="page-title pull-left">Products</h4>
+      <h4 class="page-title pull-left">Brands</h4>
       <ul class="breadcrumbs pull-left">
           <li><a href="index.html">Dashboard</a></li>
           <li><span>All Brands</span></li>
@@ -33,21 +33,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach ($allProducts as $product)
+                          @foreach ($allBrands as $brand)
                             <tr>
-                                <th scope="row">{{ $product->id }}</th>
+                                <th scope="row">{{ $brand->id }}</th>
                                 <td>
-                                  <a href="{{ route('product.show', ['id' => $product->id]) }}">
-                                    {{ $product->title }}
+                                  <a href="{{ route('brand.show', ['id' => $brand->id]) }}">
+                                    {{ $brand->title }}
                                   </a>
                                 </td>
-                                <td>{{ $product->user }}</td>
+                                <td>{{ $brand->user }}</td>
 
                                 <td><span class="status-p bg-primary">pending</span></td>
                                 <td>
                                     <ul class="d-flex justify-content-center">
-                                        <li class="mr-3"><a href="{{ route('product.edit', ['id' => $product->id]) }}" class="text-secondary"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="{{ route('product.delete', ['id' => $product->id]) }}" class="text-danger"><i class="ti-trash"></i></a></li>
+                                        <li class="mr-3"><a href="{{ route('brand.edit', ['id' => $brand->id]) }}" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                        <li><a href="{{ route('brand.delete', ['id' => $brand->id]) }}" class="text-danger"><i class="ti-trash"></i></a></li>
                                     </ul>
                                 </td>
                             </tr>

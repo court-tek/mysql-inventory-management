@@ -26,8 +26,8 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-shield"></i><span>Brands
                             </span></a>
                         <ul class="collapse">
-                            <li><a href="{{ route('product.all') }}">All Brands</a></li>
-                            <li><a href="{{ route('product.create') }}">Add New Brand</a></li>
+                            <li><a href="{{ route('brand.all') }}">All Brands</a></li>
+                            <li><a href="{{ route('brand.create') }}">Add New Brand</a></li>
                         </ul>
                     </li>
                     <li>
