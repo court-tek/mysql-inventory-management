@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin'], function() {
   //   'as' => 'product.all'
   // ]);
 
+  // Admin/Products
   Route::get('/products', [
     'uses' => 'Admin\ProductController@index',
     'as' => 'product.all'
@@ -50,5 +51,42 @@ Route::group(['prefix' => 'admin'], function() {
   Route::get('/products/{id}/delete', [
     'uses' => 'Admin\ProductController@destroy',
     'as' => 'product.delete'
+  ]);
+
+
+  // Admin/Brands
+  Route::get('/brands', [
+    'uses' => 'Admin\BrandController@index',
+    'as' => 'brand.all'
+  ]);
+
+  Route::post('/brands', [
+    'uses' => 'Admin\BrandController@store',
+    'as' => 'brand.store'
+  ]);
+
+  Route::get('/brands/create', [
+    'uses' => 'Admin\BrandController@create',
+    'as' => 'brand.create'
+  ]);
+
+  Route::get('/brands/{id}', [
+    'uses' => 'Admin\BrandController@show',
+    'as' => 'brand.show'
+  ]);
+
+  Route::get('/brands/{id}/edit', [
+    'uses' => 'Admin\BrandController@edit',
+    'as' => 'brand.edit'
+  ]);
+
+  Route::put('/brands/{id}/update', [
+    'uses' => 'Admin\BrandController@update',
+    'as' => 'brand.update'
+  ]);
+
+  Route::get('/brands/{id}/delete', [
+    'uses' => 'Admin\BrandController@destroy',
+    'as' => 'brand.delete'
   ]);
 });
